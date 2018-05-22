@@ -9,6 +9,8 @@ var Sensor1Tmp = 0;
 var Estado = 0;
 var Sensor2 = 0;
 var Sensor2Tmp = 0;
+//arreglo de 100
+
 
 port.on('data', function(data) {
   console.log("Valor 1 " + Sensor1 + " Valor 2 " + Sensor2);
