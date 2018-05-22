@@ -25,16 +25,16 @@ void loop()
   digitalWrite(tr,HIGH);//DISPARAMOS EL PULSO
   tiempoderebote = pulseIn(ech,HIGH);//MEDIMOS EL TIEMPO QUE TARDA EN VOLVER Y SER RECIBIDO POR EL RECEPTOR (ECHO)
   distancia = tiempoderebote*0.017;//FORMULA QUE TRASFORMA EL TIEMPO QUE HA TARDADO EN VOLVER EL PULSO EN CM
-  Serial.print("La distancia es de: ");//MENSAJE SERIAL
-  Serial.print(distancia);//IMPRIMIMOS LA DISTANCIA
-  Serial.println(" Cm");//PONEMOS LA UNIDAD
-  delay(500);//Y UN DELAY
+  //Serial.print("La distancia es de: ");//MENSAJE SERIAL
+  //Serial.print(distancia);//IMPRIMIMOS LA DISTANCIA
+//  Serial.println(" Cm");//PONEMOS LA UNIDAD
+//  delay(500);//Y UN DELAY
   digitalWrite(tr2,HIGH);//DISPARAMOS EL PULSO
   tiempoderebote2 = pulseIn(ech2,HIGH);//MEDIMOS EL TIEMPO QUE TARDA EN VOLVER Y SER RECIBIDO POR EL RECEPTOR (ECHO)
   distancia2 = tiempoderebote2*0.017;//FORMULA QUE TRASFORMA EL TIEMPO QUE HA TARDADO EN VOLVER EL PULSO EN CM
-  Serial.print("La distancia es de: ");//MENSAJE SERIAL
-  Serial.print(distancia2);//IMPRIMIMOS LA DISTANCIA
-  Serial.println(" Cm");//PONEMOS LA UNIDAD
+  //Serial.print("La distancia es de: ");//MENSAJE SERIAL
+//  Serial.print(distancia2);//IMPRIMIMOS LA DISTANCIA
+//  Serial.println(" Cm");//PONEMOS LA UNIDAD
   delay(500);//Y UN DELAY
 
   int Valor1 = distancia;
