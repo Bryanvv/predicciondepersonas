@@ -30,8 +30,10 @@ void loop()
   digitalWrite(tr,HIGH);//DISPARAMOS EL PULSO
   delayMicroseconds(10);
   tiempoderebote = pulseIn(ech,HIGH);//MEDIMOS EL TIEMPO QUE TARDA EN VOLVER Y SER RECIBIDO POR EL RECEPTOR (ECHO)
+  
   //distancia = tiempoderebote*0.017;//FORMULA QUE TRASFORMA EL TIEMPO QUE HA TARDADO EN VOLVER EL PULSO EN CM
   distancia =(tiempoderebote/2)/29.1;
+  //Serial.print(distancia);
 
    digitalWrite(tr2,LOW);
   delayMicroseconds(2);
