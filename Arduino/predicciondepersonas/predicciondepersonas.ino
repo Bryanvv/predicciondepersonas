@@ -26,11 +26,19 @@ void loop()
 
   digitalWrite(tr,LOW);
   delayMicroseconds(2);
+<<<<<<< HEAD
 
   digitalWrite(tr,HIGH);//DISPARAMOS EL PULSO
   delayMicroseconds(10);
   tiempoderebote = pulseIn(ech,HIGH);//MEDIMOS EL TIEMPO QUE TARDA EN VOLVER Y SER RECIBIDO POR EL RECEPTOR (ECHO)
 
+=======
+  
+  digitalWrite(tr,HIGH);//DISPARAMOS EL PULSO
+  delayMicroseconds(10);
+  tiempoderebote = pulseIn(ech,HIGH);//MEDIMOS EL TIEMPO QUE TARDA EN VOLVER Y SER RECIBIDO POR EL RECEPTOR (ECHO)
+  
+>>>>>>> 428dda4e1af78c3f69ef4ac85db035c62b2e5947
   //distancia = tiempoderebote*0.017;//FORMULA QUE TRASFORMA EL TIEMPO QUE HA TARDADO EN VOLVER EL PULSO EN CM
   distancia =(tiempoderebote/2)/29.1;
   //Serial.print(distancia);
@@ -41,10 +49,17 @@ void loop()
   delayMicroseconds(10);
   tiempoderebote2 = pulseIn(ech2,HIGH);//MEDIMOS EL TIEMPO QUE TARDA EN VOLVER Y SER RECIBIDO POR EL RECEPTOR (ECHO)
   distancia2 =(tiempoderebote2/2)/29.1;
+<<<<<<< HEAD
 
 
   //distancia2 = tiempoderebote2*0.017;//FORMULA QUE TRASFORMA EL TIEMPO QUE HA TARDADO EN VOLVER EL PULSO EN CM
 
+=======
+  
+  
+  //distancia2 = tiempoderebote2*0.017;//FORMULA QUE TRASFORMA EL TIEMPO QUE HA TARDADO EN VOLVER EL PULSO EN CM
+  
+>>>>>>> 428dda4e1af78c3f69ef4ac85db035c62b2e5947
 
   int Valor1 = distancia;
   int Valor2 = distancia2;
