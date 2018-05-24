@@ -6,14 +6,14 @@ float tiempoderebote;//VARIABLE DONDE GUARDAREMOS EL TIEMPO QUE TARDA EN REBOTAR
 float distancia;//VARIABLE DONDE ALMACENAREMOS LA DISTANCIA
 float tiempoderebote2;
 float distancia2;
-
+int sensVal;
 
 void setup()
 {
-  pinMode(tr,OUTPUT);//PIN DEL DISPARADOR COMO SALIDA
-  pinMode(ech,INPUT);//PIN DEL RECEPTOR COMO ENTRADA
-  pinMode(tr2,OUTPUT);
-  pinMode(ech2,INPUT);
+  pinMode(tr, OUTPUT); //PIN DEL DISPARADOR COMO SALIDA
+  pinMode(ech, INPUT); //PIN DEL RECEPTOR COMO ENTRADA
+  pinMode(tr2, OUTPUT);
+  pinMode(ech2, INPUT);
   Serial.begin(9600);//INICIAMOS EL SERIAL A 9600
 
 }
@@ -24,42 +24,34 @@ void loop()
 {
 
 
-  digitalWrite(tr,LOW);
+  digitalWrite(tr, LOW);
   delayMicroseconds(2);
-<<<<<<< HEAD
 
-  digitalWrite(tr,HIGH);//DISPARAMOS EL PULSO
+  digitalWrite(tr, HIGH); //DISPARAMOS EL PULSO
   delayMicroseconds(10);
-  tiempoderebote = pulseIn(ech,HIGH);//MEDIMOS EL TIEMPO QUE TARDA EN VOLVER Y SER RECIBIDO POR EL RECEPTOR (ECHO)
 
-=======
-  
-  digitalWrite(tr,HIGH);//DISPARAMOS EL PULSO
-  delayMicroseconds(10);
-  tiempoderebote = pulseIn(ech,HIGH);//MEDIMOS EL TIEMPO QUE TARDA EN VOLVER Y SER RECIBIDO POR EL RECEPTOR (ECHO)
-  
->>>>>>> 428dda4e1af78c3f69ef4ac85db035c62b2e5947
+  digitalWrite(tr, LOW);
+  tiempoderebote = pulseIn(ech, HIGH); //MEDIMOS EL TIEMPO QUE TARDA EN VOLVER Y SER RECIBIDO POR EL RECEPTOR (ECHO)
+
   //distancia = tiempoderebote*0.017;//FORMULA QUE TRASFORMA EL TIEMPO QUE HA TARDADO EN VOLVER EL PULSO EN CM
-  distancia =(tiempoderebote/2)/29.1;
-  //Serial.print(distancia);
+  distancia = (tiempoderebote / 2) / 29.1;
+   distancia = constrain(distancia, 0, 300);
 
-   digitalWrite(tr2,LOW);
+  //Serial.println(distancia);
+
+  digitalWrite(tr2, LOW);
   delayMicroseconds(2);
-  digitalWrite(tr2,HIGH);//DISPARAMOS EL PULSO
+  digitalWrite(tr2, HIGH); //DISPARAMOS EL PULSO
   delayMicroseconds(10);
-  tiempoderebote2 = pulseIn(ech2,HIGH);//MEDIMOS EL TIEMPO QUE TARDA EN VOLVER Y SER RECIBIDO POR EL RECEPTOR (ECHO)
-  distancia2 =(tiempoderebote2/2)/29.1;
-<<<<<<< HEAD
 
+  digitalWrite(tr2, LOW);
+  tiempoderebote2 = pulseIn(ech2, HIGH); //MEDIMOS EL TIEMPO QUE TARDA EN VOLVER Y SER RECIBIDO POR EL RECEPTOR (ECHO)
+  distancia2 = (tiempoderebote2 / 2) / 29.1;
+
+distancia2 = constrain(distancia2, 0, 300);
 
   //distancia2 = tiempoderebote2*0.017;//FORMULA QUE TRASFORMA EL TIEMPO QUE HA TARDADO EN VOLVER EL PULSO EN CM
 
-=======
-  
-  
-  //distancia2 = tiempoderebote2*0.017;//FORMULA QUE TRASFORMA EL TIEMPO QUE HA TARDADO EN VOLVER EL PULSO EN CM
-  
->>>>>>> 428dda4e1af78c3f69ef4ac85db035c62b2e5947
 
   int Valor1 = distancia;
   int Valor2 = distancia2;
@@ -85,7 +77,7 @@ void loop()
   for (int i = 3; i >= 0; i--) {
     Serial.write(Residuo[i]);
   }
-  Serial.write('e');
-  //Serial.println();
+   Serial.write('e');
+
   delay(1000);
 }
