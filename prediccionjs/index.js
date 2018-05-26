@@ -1,7 +1,7 @@
 var brain = require('brainjs');
 var SerialPort = require('serialport');
 
-var port = new SerialPort('/dev/cu.usbmodem1421', {
+var port = new SerialPort('/dev/COM5', {
   baudRate: 9600
 
 });
@@ -88,11 +88,11 @@ port.on('data', function(data) {
           Sensor2 = Sensor2Tmp;
           Estado = 0;
           var respuesta = Neurona.run([Sensor1/300, Sensor2/300]);
-          if (respuesta.Ninguna > 0.5) {
+          if (respuesta.Ninguna > 1) {
             console.log("No hay nadie");
-          } else if (respuesta.Unapersona > 0.5) {
+          } else if (respuesta.Unapersona > 0.1) {
             console.log("Hay una persona");
-          } else if (respuesta.dospersona > 0.5) {
+          } else if (respuesta.dospersona > 0.1) {
             console.log("Hay dos personas");
           } else {
             console.log("No se que decis");
